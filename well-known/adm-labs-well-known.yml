@@ -1,0 +1,110 @@
+generated: '2026-09-07'
+method: probed
+source: >-
+  Direct HTTP probes of the named /.well-known/ path list against every host this record
+  knows for ADM Labs. The company has no live first-party site: hempcorpusa.com (the domain
+  its own LinkedIn page publishes under the successor brand "Hemp Corp", registered by the
+  company at GoDaddy on 2020-06-09 and still held) serves a GoDaddy parking lander, and
+  adm-labs.com (the original marketing domain, live 2018-2021) lapsed and was re-registered
+  on 2022-07-20 through Spaceship with for-sale nameservers (DOMAIN-MAY-BE-FOR-SALE-AT.EDOMS.BIZ)
+  and now serves an ad-monetized fingerprint-redirect parking page that is NOT operated by
+  this company.
+hit_count: 0
+notes: >-
+  Both hosts are catch-alls. Every path — including a negative-control path that cannot exist —
+  returns the identical parking body, so no HTTP 200 observed here is a document. No WellKnown
+  and no SecurityTxt pointer is emitted: this file records an absence, not a surface.
+hosts:
+- host: https://hempcorpusa.com
+  note: >-
+    GoDaddy parking lander (window._trfd ap:"parking", LANDER_SYSTEM="PW"). Every path returns
+    the same 114-byte redirect shell to /lander.
+  soft_404_control:
+    path: /.well-known/adm-labs-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 114
+    result: failed
+  path_echo_control: failed
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/apis.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/ucp.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /.well-known/acp.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /apis.json
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+  - path: /apis.yml
+    status: 200
+    file: null
+    note: catch-all parking shell, not a document
+- host: https://adm-labs.com
+  note: >-
+    NOT company-controlled since 2022. Ad-monetization parking page (FingerprintJS redirect;
+    robots.txt disallows /cpx.php, /medios1.php, /toolbar.php, /check_popunder.php). Recorded
+    here only so the next sweep can see the same wall; nothing on this host is attributable
+    to ADM Labs.
+  soft_404_control:
+    path: /.well-known/adm-labs-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 236
+    result: passed
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: parking shell served for any plausible path, not an RFC 9116 document
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /apis.json
+    status: 404
+    file: null
+  - path: /llms.txt
+    status: 200
+    file: null
+    note: parking shell, not an llms.txt
